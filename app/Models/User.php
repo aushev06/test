@@ -44,7 +44,7 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    
+
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -60,6 +60,6 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
     public function products(){
-        return hasMany(Product::class);
+        return $this->hasMany(Product::class,'fermer_id');
     }
 }

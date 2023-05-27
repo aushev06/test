@@ -17,7 +17,7 @@ class ProductResource extends JsonResource
         return [
 					'id'=>$this->id,
 					'name'=>$this->name,
-					'image_path'=>$this->image_path,
+					'image_path'=>"app/storage/app/public/$this->image_path",
 					'descritption'=>$this->id,
                     'price'=>$this->price,
                     'fermer'=>$this->fermer,

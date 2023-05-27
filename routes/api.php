@@ -44,10 +44,15 @@ Route::group([
 Route::group(['namespace'=>'users','prefix'=>'users'],function (){
     Route::post('/',[UserController::class,'store']);
     Route::get('/',[UserController::class,'index']);
+    Route::get('/{id}',[UserController::class,'show']);
 });
 Route::group(['namespace'=>'products','prefix'=>'products'],function (){
     Route::get('/',[ProductController::class,'index']);
     Route::get('/{id}',[ProductController::class,'filtered']);
+    Route::get('/edit/{id}',[ProductController::class,'edit']);
+    Route::put('/{id}',[ProductController::class,'update']);
+
+    Route::post('/',[ProductController::class,'store']);
 
 
 
