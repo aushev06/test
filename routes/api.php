@@ -53,6 +53,8 @@ Route::group(['namespace'=>'products','prefix'=>'products'],function (){
     Route::get('/{id}',[ProductController::class,'filtered']);
     Route::get('/edit/{id}',[ProductController::class,'edit']);
     Route::put('/{id}',[ProductController::class,'update']);
+    Route::delete('/{id}',[ProductController::class,'destroy']);
+
 
     Route::post('/',[ProductController::class,'store']);
 
