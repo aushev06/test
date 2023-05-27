@@ -15,6 +15,11 @@ class UserController extends Controller
     {
         return User::all();
     }
+    public function myProducts(){
+        $fermer=User::find(auth()->id());
+        $fermer->products;
+        return $fermer;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -63,8 +68,9 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
+        $user=User::find(auth()->id());
         $validated=[
             'name'=>$request->name,
             'email'=>$request->email,
@@ -73,7 +79,7 @@ class UserController extends Controller
         ];
         $user=User::create($validated);
         $auth=new AuthController();
-
+        $user->update($validated);
         return $auth->login($user)->original;
     }
 
@@ -82,6 +88,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // $user=Worker::find($id);
+        // File::deleteDirectory(storage_path("app/public/images/$user->id"));
+        // File::deleteDirectory(storage_path("app/public/files/$worker->id"));
+        // $worker->delete();
     }
 }

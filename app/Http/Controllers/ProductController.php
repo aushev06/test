@@ -23,7 +23,7 @@ class ProductController extends Controller
     }
 
     public function filtered($id){
-        return new ProductCollection(Product::get()->where('category_id',$id));
+        return ['category'=>Category::find($id),'products'=>new ProductCollection(Product::get()->where('category_id',$id))];
     }
 
 

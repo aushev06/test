@@ -44,6 +44,8 @@ Route::group([
 Route::group(['namespace'=>'users','prefix'=>'users'],function (){
     Route::post('/',[UserController::class,'store']);
     Route::get('/',[UserController::class,'index']);
+    Route::get('/myProducts',[UserController::class,'myProducts']);
+    Route::put('/',[UserController::class,'update']);
     Route::get('/{id}',[UserController::class,'show']);
 });
 Route::group(['namespace'=>'products','prefix'=>'products'],function (){
